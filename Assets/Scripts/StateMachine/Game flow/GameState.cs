@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MainGameStateMachine : GameState
+public class GameState : State
 {
-    
+
 }

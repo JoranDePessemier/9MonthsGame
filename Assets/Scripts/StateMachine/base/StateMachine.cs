@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class StateMachine
 {
-    private Dictionary<string, State> _states = new Dictionary<string, State>();
+    private Dictionary<string, GameState> _states = new Dictionary<string, GameState>();
 
     private Stack<string> _currentStateNames;
 
-    public State CurrentState => _states[_currentStateNames.Peek()];
+    public GameState CurrentState => _states[_currentStateNames.Peek()];
 
     public string InitialState
     {
@@ -19,7 +19,7 @@ public class StateMachine
         }
     }
 
-    public void Register(string stateName, State state)
+    public void Register(string stateName, GameState state)
     {
         state.StateMachine = this;
         _states.Add(stateName, state);
