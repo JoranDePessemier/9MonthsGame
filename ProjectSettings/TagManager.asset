@@ -38,9 +38,18 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: BackGround
+    uniqueID: 2367416171
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0
   - name: Particles
     uniqueID: 4137868269
+    locked: 0
+  - name: Text
+    uniqueID: 3027272691
+    locked: 0
+  - name: Buttons
+    uniqueID: 3564119285
     locked: 0
