@@ -32,5 +32,14 @@ public class GameState : State
         {
             StartPreText();
         }
+        else if(_gameSection.QuestionText != null)
+        {
+            StartQuestionText();
+        }
+    }
+
+    private void StartQuestionText()
+    {
+        _gameSection.QuestionText.BeginText();
     }
 }
