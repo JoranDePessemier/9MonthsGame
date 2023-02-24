@@ -7,6 +7,8 @@ using UnityEngine.Events;
 
 public class TextView : MonoBehaviour
 {
+    public event EventHandler<EventArgs> TextDone;
+
     TextMeshPro _textObject;
     MouseIconView _mouseIcon;
 
@@ -62,7 +64,7 @@ public class TextView : MonoBehaviour
     {
         _mouseIcon?.DeActivate();
         _textClicked.Invoke();
-        
+        OnTextDone(EventArgs.Empty);
     }
 
     private  void  ScrollingCompleted()
@@ -74,5 +76,11 @@ public class TextView : MonoBehaviour
     private void DisableText()
     {
         this.transform.parent.gameObject.SetActive(false);
+    }
+
+    private void OnTextDone(EventArgs eventArgs)
+    {
+        var handler = TextDone;
+        handler?.Invoke(this, eventArgs);
     }
 }

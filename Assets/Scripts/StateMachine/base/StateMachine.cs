@@ -6,7 +6,7 @@ public class StateMachine
 {
     private Dictionary<string, State> _states = new Dictionary<string, State>();
 
-    private Stack<string> _currentStateNames;
+    private Stack<string> _currentStateNames = new Stack<string>();
 
     public State CurrentState => _states[_currentStateNames.Peek()];
 

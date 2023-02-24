@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -13,6 +14,23 @@ public class GameState : State
 
     public override void OnEnter()
     {
+        StartPreText();
+    }
+
+    private void StartPreText()
+    {
         _gameSection.PreQuestionText[0].BeginText();
+        _gameSection.PreQuestionText[0].TextDone += NextPreText;
+    }
+
+    private void NextPreText(object sender, EventArgs e)
+    {
+        _gameSection.PreQuestionText[0].TextDone -= NextPreText;
+        _gameSection.PreQuestionText.RemoveAt(0);
+
+        if(_gameSection.PreQuestionText.Count > 0)
+        {
+            StartPreText();
+        }
     }
 }
