@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.EventSystems;
 
 public class ButtonClickedEventArgs : EventArgs
@@ -28,10 +29,18 @@ public class ButtonView : MonoBehaviour, IPointerClickHandler, IPointerEnterHand
     [SerializeField]
     private List<TextView> _postQuestionText;
 
+    [SerializeField]
+    private UnityEvent _buttonAppears;
+
+    [SerializeField]
+    private UnityEvent _buttonClicked;
+
+    [SerializeField]
+    private UnityEvent _otherButtonClicked;
+
     private void Awake()
     {
         _animator = this.GetComponent<Animator>();
-        this.GetComponent<SpriteRenderer>().enabled = false;
         _collider = this.GetComponent<Collider2D>();
         DisableCollision();
     }
@@ -39,8 +48,8 @@ public class ButtonView : MonoBehaviour, IPointerClickHandler, IPointerEnterHand
     public void OnPointerClick(PointerEventData eventData)
     {
         OnButtonCLicked(new ButtonClickedEventArgs(this,_postQuestionText));
-        this.gameObject.SetActive(false);
         DisableCollision();
+        _buttonClicked.Invoke();
     }
 
     public void OnPointerEnter(PointerEventData eventData)
@@ -54,8 +63,8 @@ public class ButtonView : MonoBehaviour, IPointerClickHandler, IPointerEnterHand
     }
      public void ShowButton()
     {
-        this.GetComponent<SpriteRenderer>().enabled = true;
         EnableCollision();
+        _buttonAppears.Invoke();
     }
 
     private void EnableCollision()
@@ -66,7 +75,7 @@ public class ButtonView : MonoBehaviour, IPointerClickHandler, IPointerEnterHand
     internal void NotClicked()
     {
         DisableCollision();
-        this.GetComponent<SpriteRenderer>().enabled = false;
+        _otherButtonClicked.Invoke();
     }
 
     private void DisableCollision()

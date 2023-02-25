@@ -31,6 +31,17 @@ public class GameSectionView : MonoBehaviour
         set { _buttons = value; }
     }
 
+    [SerializeField]
+    private BackGroundView _backGround;
+
+    public BackGroundView BackGround
+    {
+        get { return _backGround; }
+        set { _backGround = value; }
+    }
+
     public List<TextView> PostQuestionText { get; set; } 
+
+
 
 }

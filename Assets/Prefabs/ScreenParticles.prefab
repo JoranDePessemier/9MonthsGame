@@ -804,7 +804,7 @@ ParticleSystem:
     m_Mesh: {fileID: 0}
     m_MeshRenderer: {fileID: 0}
     m_SkinnedMeshRenderer: {fileID: 0}
-    m_Sprite: {fileID: 21300000, guid: c4d8c9843314b164787b128a7dec365e, type: 3}
+    m_Sprite: {fileID: 21300000, guid: d792f69976e96a8489ad470c9b9d5438, type: 3}
     m_SpriteRenderer: {fileID: 0}
     m_UseMeshMaterialIndex: 0
     m_UseMeshColors: 1

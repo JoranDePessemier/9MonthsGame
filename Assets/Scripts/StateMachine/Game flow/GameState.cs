@@ -14,14 +14,29 @@ public class GameState : State
 
     public override void OnEnter()
     {
+        base.OnEnter();
         _gameSection.gameObject.SetActive(true);
         StartPreText();
     }
 
+    public override void OnExit()
+    {
+        base.OnExit();
+        _gameSection.gameObject.SetActive(false);
+    }
+
     private void StartPreText()
     {
-        _gameSection.PreQuestionText[0].BeginText();
-        _gameSection.PreQuestionText[0].TextDone += NextPreText;
+        if(_gameSection.PreQuestionText.Count > 0)
+        {
+            _gameSection.PreQuestionText[0].BeginText();
+            _gameSection.PreQuestionText[0].TextDone += NextPreText;
+        }
+        else
+        {
+            StartQuestionText();
+        }
+
     }
 
     private void NextPreText(object sender, EventArgs e)
@@ -29,20 +44,37 @@ public class GameState : State
         _gameSection.PreQuestionText[0].TextDone -= NextPreText;
         _gameSection.PreQuestionText.RemoveAt(0);
 
-        if(_gameSection.PreQuestionText.Count > 0)
-        {
-            StartPreText();
-        }
-        else if(_gameSection.QuestionText != null)
-        {
-            StartQuestionText();
-        }
+        StartPreText();
     }
 
     private void StartQuestionText()
     {
-        _gameSection.QuestionText.BeginText();
-        _gameSection.QuestionText.TextDone += ShowButtons;
+        if (_gameSection.QuestionText != null)
+        {
+            _gameSection.QuestionText.BeginText();
+            _gameSection.QuestionText.TextDone += ShowButtons;
+        }
+        else
+        {
+            FadeBackGround();
+        }
+    }
+
+    private void FadeBackGround()
+    {
+        if(_gameSection.BackGround != null)
+        {
+            _gameSection.BackGround.FadeOut();
+            _gameSection.BackGround.FadeComplete += NextScene;
+        }
+        else
+        {
+            NextScene(this, EventArgs.Empty);
+        }
+    }
+
+    private void NextScene(object sender, EventArgs e)
+    {
     }
 
     private void ShowButtons(object sender, EventArgs e)
@@ -93,6 +125,10 @@ public class GameState : State
         if (_gameSection.PostQuestionText.Count > 0)
         {
             StartPostText();
+        }
+        else
+        {
+            FadeBackGround();
         }
     }
 }

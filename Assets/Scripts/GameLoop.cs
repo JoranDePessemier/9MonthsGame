@@ -16,7 +16,6 @@ public class GameLoop : MonoBehaviour
         for (int i = 0; i < _sections.Count ; i++)
         {
             _gameStateMachine.Register($"GameState{i}", new GameState(_sections[i]));
-            Debug.Log("Yay");
         }
 
         _gameStateMachine.InitialState = $"GameState{0}";
