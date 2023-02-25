@@ -13,6 +13,7 @@ public class QuestionTextView : MonoBehaviour
 
     private TextMeshPro _textObject;
     private Transform _transform;
+    MouseIconView _mouseIcon;
 
     [SerializeField]
     private float _scrollSpeed;
@@ -29,6 +30,9 @@ public class QuestionTextView : MonoBehaviour
     [SerializeField]
     private UnityEvent _textIsDoneScrolling;
 
+    [SerializeField]
+    private UnityEvent _buttonClicked;
+
 
     private void Awake()
     {
@@ -37,6 +41,12 @@ public class QuestionTextView : MonoBehaviour
 
         _transform = this.transform.parent.transform;
 
+    }
+
+    private void Start()
+    {
+        
+        _mouseIcon = FindObjectOfType<MouseIconView>();
     }
 
 
@@ -66,6 +76,7 @@ public class QuestionTextView : MonoBehaviour
     {
         _textIsDoneScrolling.Invoke();
         OnTextDone(EventArgs.Empty);
+        _mouseIcon?.Activate();
 
         StartCoroutine(MoveToSecondPosition());
     }
@@ -88,6 +99,12 @@ public class QuestionTextView : MonoBehaviour
     {
         var handler = TextDone;
         handler?.Invoke(this, eventArgs);
+    }
+
+    public void ButtonClicked()
+    {
+        _mouseIcon?.DeActivate();
+        _buttonClicked.Invoke();
     }
 
 }

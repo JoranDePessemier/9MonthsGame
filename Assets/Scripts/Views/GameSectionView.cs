@@ -22,5 +22,15 @@ public class GameSectionView : MonoBehaviour
         set { _questionText = value; }
     }
 
+    [SerializeField]
     private List<ButtonView> _buttons;
+
+    public List<ButtonView> Buttons
+    {
+        get { return _buttons; }
+        set { _buttons = value; }
+    }
+
+    public List<TextView> PostQuestionText { get; set; } 
+
 }
