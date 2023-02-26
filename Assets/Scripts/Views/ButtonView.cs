@@ -106,12 +106,14 @@ public class ButtonView : MonoBehaviour, IPointerClickHandler, IPointerEnterHand
     {
         _animator.SetBool("Selected", true);
         _selected = true;
+        _timer = _selectedSpriteSpeed;
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
         _animator.SetBool("Selected", false);
         _selected = false;
+        _timer = _unselectedSpriteSpeed;
     }
      public void ShowButton()
     {

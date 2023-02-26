@@ -109,17 +109,9 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   _imgage: {fileID: 4383996310111813491}
-  _unSelectedSprites:
-  - {fileID: -301330049, guid: 86449d157abbef34ba9add3f24bb657b, type: 3}
-  - {fileID: 1319481893, guid: 86449d157abbef34ba9add3f24bb657b, type: 3}
-  - {fileID: -1440277163, guid: 86449d157abbef34ba9add3f24bb657b, type: 3}
-  - {fileID: -575245434, guid: 86449d157abbef34ba9add3f24bb657b, type: 3}
+  _unSelectedSprites: []
   _unselectedSpriteSpeed: 0.1
-  _selectedSprites:
-  - {fileID: 1823470183, guid: 86449d157abbef34ba9add3f24bb657b, type: 3}
-  - {fileID: -1062928757, guid: 86449d157abbef34ba9add3f24bb657b, type: 3}
-  - {fileID: 741240099, guid: 86449d157abbef34ba9add3f24bb657b, type: 3}
-  - {fileID: 65829305, guid: 86449d157abbef34ba9add3f24bb657b, type: 3}
+  _selectedSprites: []
   _selectedSpriteSpeed: 0.25
 --- !u!212 &1032186554812593893
 SpriteRenderer:
