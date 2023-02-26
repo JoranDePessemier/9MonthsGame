@@ -25,6 +25,7 @@ public class ButtonView : MonoBehaviour, IPointerClickHandler, IPointerEnterHand
 
     private Animator _animator;
     private Collider2D _collider;
+    private bool _selected;
 
     [SerializeField]
     private List<TextView> _postQuestionText;
@@ -38,11 +39,60 @@ public class ButtonView : MonoBehaviour, IPointerClickHandler, IPointerEnterHand
     [SerializeField]
     private UnityEvent _otherButtonClicked;
 
+    [Header("IMAGE ATTRIBUTES")]
+    [SerializeField]
+    private SpriteRenderer _imgage;
+
+    [SerializeField]
+    private List<Sprite> _unSelectedSprites;
+
+    [SerializeField]
+    private float _unselectedSpriteSpeed;
+
+    [SerializeField]
+    private List<Sprite> _selectedSprites;
+
+    [SerializeField]
+    private float _selectedSpriteSpeed;
+
+    private int _nextSpriteIndex;
+    private float _timer;
+    
+
     private void Awake()
     {
         _animator = this.GetComponent<Animator>();
         _collider = this.GetComponent<Collider2D>();
         DisableCollision();
+    }
+
+
+    private void Update()
+    {
+        _timer += Time.deltaTime;
+        if (_selected)
+        {
+            AnimateImage(_selectedSprites,_selectedSpriteSpeed);
+        }
+        else
+        {
+            AnimateImage(_unSelectedSprites, _unselectedSpriteSpeed);
+        }
+    }
+
+    private void AnimateImage(List<Sprite> sprites, float speed)
+    {
+        if(_nextSpriteIndex >= sprites.Count)
+        {
+            _nextSpriteIndex = 0;
+        }
+
+        if(_timer >= speed)
+        {
+            _imgage.sprite = sprites[_nextSpriteIndex];
+            _timer -= speed;
+            _nextSpriteIndex++;
+        }
     }
 
     public void OnPointerClick(PointerEventData eventData)
@@ -55,11 +105,13 @@ public class ButtonView : MonoBehaviour, IPointerClickHandler, IPointerEnterHand
     public void OnPointerEnter(PointerEventData eventData)
     {
         _animator.SetBool("Selected", true);
+        _selected = true;
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
         _animator.SetBool("Selected", false);
+        _selected = false;
     }
      public void ShowButton()
     {

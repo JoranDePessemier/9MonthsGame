@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 463a9c85cf202bb469a1550a2151fe9e
+guid: 86449d157abbef34ba9add3f24bb657b
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -117,7 +117,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Button_0
+      name: Boy_0
       rect:
         serializedVersion: 2
         x: 0
@@ -131,14 +131,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 97423b2285e7c514c96b4236788e54ce
-      internalID: 1618599942
+      spriteID: a82c2f3c7f621ea4893da62eaa5f9b97
+      internalID: -301330049
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Button_1
+      name: Boy_1
       rect:
         serializedVersion: 2
         x: 363
@@ -152,14 +152,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7badde4abefd3df4cb7db8f9f976ed48
-      internalID: -1579581197
+      spriteID: 2c10835d1c5759e42b4618ecc242629a
+      internalID: 1319481893
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Button_2
+      name: Boy_2
       rect:
         serializedVersion: 2
         x: 726
@@ -173,14 +173,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5a856bf95d7234f46888f60cb12a7e96
-      internalID: -2040701279
+      spriteID: b5c69c103667a3841825f9f0cb736551
+      internalID: -1440277163
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Button_3
+      name: Boy_3
       rect:
         serializedVersion: 2
         x: 1089
@@ -194,56 +194,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cb36029d9f9ef234f9747c02b62e4fba
-      internalID: 512750205
+      spriteID: 07a5e47d0cc04814f928e37d565a58b4
+      internalID: -575245434
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Button_4
-      rect:
-        serializedVersion: 2
-        x: 1452
-        y: 363
-        width: 363
-        height: 363
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 918ea05852c10234b81f2d7e26cb7ce8
-      internalID: -248443891
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Button_5
-      rect:
-        serializedVersion: 2
-        x: 1815
-        y: 363
-        width: 363
-        height: 363
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 9f401185c6df389409bab1e3d58437b6
-      internalID: -38164804
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Button_6
+      name: Boy_4
       rect:
         serializedVersion: 2
         x: 0
@@ -257,14 +215,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7c1b3e361fc946b42a0464f899d6cbb4
-      internalID: 1737793369
+      spriteID: f7bac020f5765e04b9adf25ac1278da5
+      internalID: 1823470183
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Button_7
+      name: Boy_5
       rect:
         serializedVersion: 2
         x: 363
@@ -278,14 +236,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 74cc29e674d38fa4993d2deaca2739ba
-      internalID: -1257412963
+      spriteID: 9fc8e5c3179b0154a8ce7eebdf26e403
+      internalID: -1062928757
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Button_8
+      name: Boy_6
       rect:
         serializedVersion: 2
         x: 726
@@ -299,14 +257,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1af2f1af19a9877458d98abcf7af32b4
-      internalID: 1499211786
+      spriteID: 1315b03612a4ecd4fb0c30144db02658
+      internalID: 741240099
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Button_9
+      name: Boy_7
       rect:
         serializedVersion: 2
         x: 1089
@@ -320,50 +278,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: abf9661416d215d4ab8023419aeac9fd
-      internalID: -2110897600
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Button_10
-      rect:
-        serializedVersion: 2
-        x: 1452
-        y: 0
-        width: 363
-        height: 363
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 086243205730316499aab8741b63ee0b
-      internalID: 777432057
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Button_11
-      rect:
-        serializedVersion: 2
-        x: 1815
-        y: 0
-        width: 363
-        height: 363
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 09295da4a4b964d4b943dac0fb63721c
-      internalID: 599315210
+      spriteID: edaef1eb64535b94dbd562580a2dec43
+      internalID: 65829305
       vertices: []
       indices: 
       edges: []
@@ -379,18 +295,14 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Button_5: -38164804
-      Button_8: 1499211786
-      Button_1: -1579581197
-      Button_4: -248443891
-      Button_9: -2110897600
-      Button_10: 777432057
-      Button_3: 512750205
-      Button_2: -2040701279
-      Button_11: 599315210
-      Button_6: 1737793369
-      Button_0: 1618599942
-      Button_7: -1257412963
+      Boy_4: 1823470183
+      Boy_2: -1440277163
+      Boy_5: -1062928757
+      Boy_7: 65829305
+      Boy_0: -301330049
+      Boy_6: 741240099
+      Boy_3: -575245434
+      Boy_1: 1319481893
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
