@@ -191,7 +191,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3002096980207193567, guid: f64b84ce82570634ca9b43afc045be17, type: 3}
       propertyPath: m_text
-      value: This is the least important question, but we need it for your vessel.
+      value: This is the least important question, but we need it for your body.
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f64b84ce82570634ca9b43afc045be17, type: 3}
