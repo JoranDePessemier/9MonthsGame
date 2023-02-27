@@ -126,7 +126,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 416a78223b899804e81b10723300b93c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _scrollSpeed: 0.12
+  _scrollSpeed: 0.09
   _characterAppears:
     m_PersistentCalls:
       m_Calls: []

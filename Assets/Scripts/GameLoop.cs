@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -16,8 +17,14 @@ public class GameLoop : MonoBehaviour
         for (int i = 0; i < _sections.Count ; i++)
         {
             _gameStateMachine.Register($"GameState{i}", new GameState(_sections[i]));
+            _sections[i].GoToNextScene += NextScene;
         }
 
         _gameStateMachine.InitialState = $"GameState{0}";
+    }
+
+    private void NextScene(object sender, NextSceneEventArgs e)
+    {
+        _gameStateMachine.MoveTo(e.NextScene);
     }
 }

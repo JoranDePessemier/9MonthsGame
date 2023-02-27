@@ -7,6 +7,7 @@ public class GameState : State
 {
     private GameSectionView _gameSection;
 
+
     public GameState(GameSectionView gameSection)
     {
         _gameSection = gameSection;
@@ -75,6 +76,7 @@ public class GameState : State
 
     private void NextScene(object sender, EventArgs e)
     {
+        _gameSection.NextSection();
     }
 
     private void ShowButtons(object sender, EventArgs e)
@@ -131,4 +133,5 @@ public class GameState : State
             FadeBackGround();
         }
     }
+
 }

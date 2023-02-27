@@ -70,7 +70,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 20, y: 5}
+  m_SizeDelta: {x: 16, y: 5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!23 &3305078935643324653
 MeshRenderer:
@@ -238,7 +238,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2261b2759b8fc94499b94da320961f13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _scrollSpeed: 0.12
+  _scrollSpeed: 0.09
   _secondPosition: {x: 0, y: 3, z: 0}
   _secondPositionMoveSpeed: 10
   _characterAppears:
