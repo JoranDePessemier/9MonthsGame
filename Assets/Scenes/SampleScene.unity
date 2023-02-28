@@ -2557,8 +2557,9 @@ MonoBehaviour:
   - {fileID: 17912477}
   _backGround: {fileID: 15115609}
   _nextSceneName: 
-  _fadeInSongs: []
-  _fadeInSpeed: 0
+  _fadeInSongs:
+  - 
+  _fadeInSpeed: 0.1
   _fadeOutSongs: []
   _fadeOutSpeed: 0
 --- !u!4 &1498159280
@@ -2979,8 +2980,9 @@ MonoBehaviour:
   - {fileID: 1473050510}
   _backGround: {fileID: 1695465780}
   _nextSceneName: GameState3
-  _fadeInSongs: []
-  _fadeInSpeed: 0
+  _fadeInSongs:
+  - PianoMelody
+  _fadeInSpeed: 0.1
   _fadeOutSongs: []
   _fadeOutSpeed: 0
 --- !u!4 &1766256577
