@@ -56,13 +56,46 @@ public class GameSectionView : MonoBehaviour
 
     public List<TextView> PostQuestionText { get; set; }
 
+    [SerializeField]
+    private string _nextSceneName;
+
+    [Header("Music")]
+    [SerializeField]
+    private string[] _fadeInSongs;
+
+    [SerializeField]
+    private float _fadeInSpeed;
+
+    [SerializeField]
+    private string[] _fadeOutSongs;
+
+    [SerializeField]
+    private float _fadeOutSpeed;
+
+    private AudioManager _audioManager;
+
+    private void Awake()
+    {
+        _audioManager = FindObjectOfType<AudioManager>();
+    }
+
+    public void FadeInMusic()
+    {
+        foreach(string song in _fadeInSongs)
+        {
+            _audioManager.FadeIn(song, _fadeInSpeed);
+        }
+
+        foreach(string song in _fadeOutSongs)
+        {
+            _audioManager.FadeOut(song, _fadeOutSpeed);
+        }
+    }
+
     public void NextSection()
     {
         OnGoToNextScene(new NextSceneEventArgs(_nextSceneName));
     }
-
-    [SerializeField]
-    private string _nextSceneName;
 
     private void OnGoToNextScene(NextSceneEventArgs eventArgs)
     {

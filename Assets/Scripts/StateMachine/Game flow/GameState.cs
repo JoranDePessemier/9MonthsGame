@@ -63,6 +63,8 @@ public class GameState : State
 
     private void FadeBackGround()
     {
+        FadeMusic();
+
         if(_gameSection.BackGround != null)
         {
             _gameSection.BackGround.FadeOut();
@@ -72,6 +74,11 @@ public class GameState : State
         {
             NextScene(this, EventArgs.Empty);
         }
+    }
+
+    private void FadeMusic()
+    {
+        _gameSection.FadeInMusic();
     }
 
     private void NextScene(object sender, EventArgs e)
