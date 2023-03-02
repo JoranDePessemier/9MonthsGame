@@ -11,6 +11,7 @@ public class TextView : MonoBehaviour
 
     TextMeshPro _textObject;
     MouseIconView _mouseIcon;
+    AudioManager _audioManager;
 
     [SerializeField]
     private float _scrollSpeed;
@@ -33,11 +34,18 @@ public class TextView : MonoBehaviour
     private void Start()
     {
         _mouseIcon = FindObjectOfType<MouseIconView>();
+        _audioManager = FindObjectOfType<AudioManager>();
     }
 
     public void BeginText()
     {
+        if (_audioManager == null)
+        {
+            _audioManager = FindObjectOfType<AudioManager>();
+        }
         StartCoroutine(ScrollText());
+
+
     }
 
     private IEnumerator ScrollText()
@@ -46,6 +54,14 @@ public class TextView : MonoBehaviour
         {
             _textObject.maxVisibleCharacters = i + 1;
             _characterAppears.Invoke();
+
+            if(i+1 < _textObject.text.Length &&_textObject.text[i+1] != ' ')
+            {
+                string[] sounds = new string[]{"CharacterAppears", "CharacterAppears2", "CharacterAppears3"};
+                _audioManager.Play(sounds, 0.1f);
+            }
+
+
             yield return new WaitForSeconds(_scrollSpeed);
         }
         
@@ -63,6 +79,7 @@ public class TextView : MonoBehaviour
     private void TextClicked()
     {
         _mouseIcon?.DeActivate();
+        _audioManager.Play("TextClicked",0.1f);
         _textClicked.Invoke();
         OnTextDone(EventArgs.Empty);
     }

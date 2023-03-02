@@ -68,9 +68,29 @@ public class AudioManager : MonoBehaviour
         song.source.volume = song.Volume;
     }
 
-    public void Play(string name)
+    public void Play(string name) => Play(name, 0);
+
+    public void Play(string name, float pitchVariation)
     {
         Sound sound = Array.Find(_sounds, sound => sound.Name == name);
+
+        float pitch = UnityEngine.Random.Range(sound.Pitch - pitchVariation, sound.Pitch + pitchVariation);
+        sound.source.pitch = pitch;
+
         sound.source.Play();
     }
+
+    public void Play(string[] names, float PitchVariation)
+    {
+        string name = names[UnityEngine.Random.Range(0, names.Length)];
+        Sound sound = Array.Find(_sounds, sound => sound.Name == name);
+
+
+        float pitch = UnityEngine.Random.Range(sound.Pitch - PitchVariation, sound.Pitch + PitchVariation);
+        sound.source.pitch = pitch;
+
+        sound.source.Play();
+    }
+
+    public void Play(string[] names) => Play(names, 0);
 }

@@ -14,6 +14,7 @@ public class QuestionTextView : MonoBehaviour
     private TextMeshPro _textObject;
     private Transform _transform;
     MouseIconView _mouseIcon;
+    private AudioManager _audioManager;
 
     [SerializeField]
     private float _scrollSpeed;
@@ -45,7 +46,7 @@ public class QuestionTextView : MonoBehaviour
 
     private void Start()
     {
-        
+        _audioManager = FindObjectOfType<AudioManager>();
         _mouseIcon = FindObjectOfType<MouseIconView>();
     }
 
@@ -60,6 +61,12 @@ public class QuestionTextView : MonoBehaviour
         for (int i = 0; i < _textObject.text.Length; i++)
         {
             _textObject.maxVisibleCharacters = i + 1;
+
+            if (i + 1 < _textObject.text.Length && _textObject.text[i + 1] != ' ')
+            {
+                _audioManager.Play("CharacterAppears", 0.1f);
+            }
+
             _characterAppears.Invoke();
             yield return new WaitForSeconds(_scrollSpeed);
         }

@@ -26,6 +26,7 @@ public class ButtonView : MonoBehaviour, IPointerClickHandler, IPointerEnterHand
     private Animator _animator;
     private Collider2D _collider;
     private bool _selected;
+    private AudioManager _audioManager;
 
     [SerializeField]
     private List<TextView> _postQuestionText;
@@ -64,6 +65,7 @@ public class ButtonView : MonoBehaviour, IPointerClickHandler, IPointerEnterHand
         _animator = this.GetComponent<Animator>();
         _collider = this.GetComponent<Collider2D>();
         DisableCollision();
+        _audioManager = FindObjectOfType<AudioManager>();
     }
 
 
@@ -100,6 +102,7 @@ public class ButtonView : MonoBehaviour, IPointerClickHandler, IPointerEnterHand
         OnButtonCLicked(new ButtonClickedEventArgs(this,_postQuestionText));
         DisableCollision();
         _buttonClicked.Invoke();
+        _audioManager.Play("ButtonClicked");
     }
 
     public void OnPointerEnter(PointerEventData eventData)
