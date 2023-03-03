@@ -247,7 +247,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: -2.6}
-  m_SizeDelta: {x: 10.62, y: 3}
+  m_SizeDelta: {x: 6.33, y: 3}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!23 &8196008516327173771
 MeshRenderer:

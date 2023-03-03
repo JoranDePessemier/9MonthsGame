@@ -8,6 +8,21 @@ public class AudioManager : MonoBehaviour
     [SerializeField]
     private Sound[] _sounds;
 
+    [SerializeField]
+    private float _fastFadeOutSpeed;
+
+    [SerializeField]
+    private float _fastFadeInSpeed;
+
+    [SerializeField]
+    private float _slowFadeOutSpeed;
+
+    [SerializeField]
+    private float _clockFadeVolume = 0.337f;
+
+    [SerializeField]
+    private float _clockFadeSpeed = 0.1f;
+
     private void Awake()
     {
         foreach(Sound sound in _sounds)
@@ -28,7 +43,18 @@ public class AudioManager : MonoBehaviour
         Play("PianoChords");
         Play("PianoMelody");
         Play("Violin");
+        Play("Chord1");
+        Play("Chord2");
+        Play("Chord3");
+        Play("Chord4");
+        Play("Chord5");
 
+        FadeOut("Chord1", 1000f);
+        FadeOut("Chord2", 1000f);
+        FadeOut("Chord3", 1000f);
+        FadeOut("Chord4", 1000f);
+        FadeOut("Chord5", 1000f);
+        FadeOut("Bass",1000f);
         FadeOut("Violin", 1000f);
         FadeOut("Clock", 1000f);
         FadeOut("PianoChords", 1000f);
@@ -93,4 +119,44 @@ public class AudioManager : MonoBehaviour
     }
 
     public void Play(string[] names) => Play(names, 0);
+
+    public void Stop(string name)
+    {
+        Sound sound = Array.Find(_sounds, sound => sound.Name == name);
+        sound.source.Stop();
+    }
+
+    public void FastFadeOut(string name)
+    {
+        Sound sound = Array.Find(_sounds, sound => sound.Name == name);
+        StartCoroutine(FadeOutMusic(sound, _fastFadeOutSpeed));
+    }
+
+    public void FastFadeIn(string name)
+    {
+        Sound sound = Array.Find(_sounds, sound => sound.Name == name);
+        StartCoroutine(FadeInMusic(sound, _fastFadeInSpeed));
+    }
+
+    public void SlowFadeOut(string name)
+    {
+        Sound sound = Array.Find(_sounds, sound => sound.Name == name);
+        StartCoroutine(FadeOutMusic(sound, _slowFadeOutSpeed));
+    }
+
+    public void SetMoreSilentForClock(string name)
+    {
+        Sound sound = Array.Find(_sounds, sound => sound.Name == name);
+        StartCoroutine(FadeToVolume(sound, _clockFadeSpeed,_clockFadeVolume));
+    }
+
+    private IEnumerator FadeToVolume(Sound song, float fadeSpeed,float volume)
+    {
+        while (song.source.volume != volume)
+        {
+            song.source.volume = Mathf.MoveTowards(song.source.volume, volume, fadeSpeed * Time.deltaTime);
+            yield return 0;
+        }
+        song.source.volume = volume;
+    }
 }
