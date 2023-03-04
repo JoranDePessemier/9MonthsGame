@@ -23,7 +23,12 @@ public class GameState : State
     public override void OnExit()
     {
         base.OnExit();
-        _gameSection.gameObject.SetActive(false);
+
+        if (_gameSection.SetInactive)
+        {
+            _gameSection.gameObject.SetActive(false);
+        }
+
     }
 
     private void StartPreText()
@@ -63,17 +68,33 @@ public class GameState : State
 
     private void FadeBackGround()
     {
-        FadeMusic();
-
-        if(_gameSection.BackGround != null)
+        if(_gameSection.WaitingTime == 0)
         {
-            _gameSection.BackGround.FadeOut();
-            _gameSection.BackGround.FadeComplete += NextScene;
+            FadeMusic();
+
+            if (_gameSection.BackGround != null)
+            {
+                _gameSection.BackGround.FadeOut();
+                _gameSection.BackGround.FadeComplete += NextScene;
+            }
+            else
+            {
+                NextScene(this, EventArgs.Empty);
+            }
         }
         else
         {
-            NextScene(this, EventArgs.Empty);
+            _gameSection.DoneWaiting += OnDoneWaiting;
+            _gameSection.Wait();
         }
+
+
+    }
+
+    private void OnDoneWaiting(object sender, EventArgs e)
+    {
+        _gameSection.DoneWaiting -= OnDoneWaiting;
+        FadeBackGround();
     }
 
     private void FadeMusic()
@@ -83,6 +104,7 @@ public class GameState : State
 
     private void NextScene(object sender, EventArgs e)
     {
+        _gameSection.TransferToNextScene.Invoke();
         _gameSection.NextSection();
     }
 

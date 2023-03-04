@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameLoop : MonoBehaviour
 {
@@ -26,5 +27,10 @@ public class GameLoop : MonoBehaviour
     private void NextScene(object sender, NextSceneEventArgs e)
     {
         _gameStateMachine.MoveTo(e.NextScene);
+    }
+
+    public void ReloadGame()
+    {
+        SceneManager.LoadScene(0);
     }
 }

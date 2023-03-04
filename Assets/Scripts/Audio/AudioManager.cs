@@ -48,7 +48,10 @@ public class AudioManager : MonoBehaviour
         Play("Chord3");
         Play("Chord4");
         Play("Chord5");
+        Play("Rain");
 
+
+        FadeOut("Rain", 1000f);
         FadeOut("Chord1", 1000f);
         FadeOut("Chord2", 1000f);
         FadeOut("Chord3", 1000f);

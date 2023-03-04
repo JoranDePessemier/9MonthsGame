@@ -16,6 +16,7 @@ public class TextView : MonoBehaviour
     [SerializeField]
     private float _scrollSpeed;
 
+
     [SerializeField]
     private UnityEvent _characterAppears;
 
@@ -24,6 +25,8 @@ public class TextView : MonoBehaviour
 
     [SerializeField]
     private UnityEvent _textClicked;
+
+    
 
     private void Awake()
     {

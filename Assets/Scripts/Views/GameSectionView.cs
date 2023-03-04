@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class NextSceneEventArgs : EventArgs
 {
@@ -17,6 +18,9 @@ public class NextSceneEventArgs : EventArgs
 public class GameSectionView : MonoBehaviour
 {
     public event EventHandler<NextSceneEventArgs> GoToNextScene;
+    public event EventHandler<EventArgs> DoneWaiting;
+
+    public UnityEvent TransferToNextScene;
 
     [SerializeField]
     private List<TextView> _preQuestionText;
@@ -57,6 +61,24 @@ public class GameSectionView : MonoBehaviour
     public List<TextView> PostQuestionText { get; set; }
 
     [SerializeField]
+    private float _waitingTime;
+
+    public float WaitingTime
+    {
+        get { return _waitingTime; }
+         private set { _waitingTime = value; }
+    }
+
+    [SerializeField]
+    private bool _setInactive = true;
+
+    public bool SetInactive
+    {
+        get { return _setInactive; }
+        private set { _setInactive = value; }
+    }
+
+    [SerializeField]
     private string _nextSceneName;
 
     [Header("Music")]
@@ -94,12 +116,34 @@ public class GameSectionView : MonoBehaviour
 
     public void NextSection()
     {
-        OnGoToNextScene(new NextSceneEventArgs(_nextSceneName));
+        if(_nextSceneName != "")
+        {
+            OnGoToNextScene(new NextSceneEventArgs(_nextSceneName));
+        }
+
     }
 
     private void OnGoToNextScene(NextSceneEventArgs eventArgs)
     {
         var handler = GoToNextScene;
+        handler?.Invoke(this, eventArgs);
+    }
+
+    public void Wait() 
+    {
+        StartCoroutine(ProcessWaiting());
+    }
+
+    private IEnumerator ProcessWaiting()
+    {
+        yield return new WaitForSeconds(_waitingTime);
+        _waitingTime = 0;
+        OnDoneWaiting(EventArgs.Empty);
+    }
+
+    private void OnDoneWaiting(EventArgs eventArgs)
+    {
+        var handler = DoneWaiting;
         handler?.Invoke(this, eventArgs);
     }
 }
