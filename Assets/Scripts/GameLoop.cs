@@ -9,11 +9,17 @@ public class GameLoop : MonoBehaviour
     [SerializeField]
     private List<GameSectionView> _sections;
 
+    [SerializeField]
+    private MainMenuView _menuView;
+
     private StateMachine _gameStateMachine;
 
     private void Awake()
     {
         _gameStateMachine = new StateMachine();
+
+        _gameStateMachine.Register("MainMenuState", new MenuState(_menuView));
+        _menuView.GoToNextScene += NextScene;
 
         for (int i = 0; i < _sections.Count ; i++)
         {
@@ -21,7 +27,7 @@ public class GameLoop : MonoBehaviour
             _sections[i].GoToNextScene += NextScene;
         }
 
-        _gameStateMachine.InitialState = $"GameState{0}";
+        _gameStateMachine.InitialState = $"MainMenuState";
     }
 
     private void NextScene(object sender, NextSceneEventArgs e)

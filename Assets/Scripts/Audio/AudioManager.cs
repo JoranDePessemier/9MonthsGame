@@ -59,7 +59,6 @@ public class AudioManager : MonoBehaviour
         FadeOut("Chord5", 1000f);
         FadeOut("Bass",1000f);
         FadeOut("Violin", 1000f);
-        FadeOut("Clock", 1000f);
         FadeOut("PianoChords", 1000f);
         FadeOut("PianoMelody", 1000f);
         FadeOut("GuitarMelody", 1000f);
