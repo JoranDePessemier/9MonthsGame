@@ -53,6 +53,7 @@ public class AudioManager : MonoBehaviour
 
         FadeOut("Rain", 1000f);
         FadeOut("Chord1", 1000f);
+        FadeOut("Clock", 1000f);
         FadeOut("Chord2", 1000f);
         FadeOut("Chord3", 1000f);
         FadeOut("Chord4", 1000f);

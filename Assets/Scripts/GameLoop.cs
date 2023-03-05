@@ -12,11 +12,17 @@ public class GameLoop : MonoBehaviour
     [SerializeField]
     private MainMenuView _menuView;
 
+    [SerializeField]
+    private GameSectionView _audioScreen;
+
     private StateMachine _gameStateMachine;
 
     private void Awake()
     {
         _gameStateMachine = new StateMachine();
+
+        _gameStateMachine.Register("AudioScreen", new GameState(_audioScreen));
+        _audioScreen.GoToNextScene += NextScene;
 
         _gameStateMachine.Register("MainMenuState", new MenuState(_menuView));
         _menuView.GoToNextScene += NextScene;
@@ -27,7 +33,7 @@ public class GameLoop : MonoBehaviour
             _sections[i].GoToNextScene += NextScene;
         }
 
-        _gameStateMachine.InitialState = $"MainMenuState";
+        _gameStateMachine.InitialState = $"AudioScreen";
     }
 
     private void NextScene(object sender, NextSceneEventArgs e)
@@ -39,4 +45,5 @@ public class GameLoop : MonoBehaviour
     {
         SceneManager.LoadScene(0);
     }
+
 }

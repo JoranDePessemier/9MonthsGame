@@ -13,6 +13,9 @@ public class MainMenuView : MonoBehaviour
     [SerializeField]
     private string _nextSceneName;
 
+    
+    
+
     [Header("Music")]
     [SerializeField]
     private string[] _fadeInSongs;
