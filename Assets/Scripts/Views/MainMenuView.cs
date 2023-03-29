@@ -43,6 +43,11 @@ public class MainMenuView : MonoBehaviour
         OnPlayClicked(EventArgs.Empty);
     }
 
+    public void QuitGame()
+    {
+        Application.Quit();
+    }
+
     public void GoToSite(string adress)
     {
         Application.OpenURL(adress);
