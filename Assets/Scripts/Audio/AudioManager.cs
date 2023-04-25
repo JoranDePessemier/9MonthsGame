@@ -37,18 +37,7 @@ public class AudioManager : MonoBehaviour
 
     private void Start()
     {
-        Play("Clock");
-        Play("Bass");
-        Play("GuitarMelody");
-        Play("PianoChords");
-        Play("PianoMelody");
-        Play("Violin");
-        Play("Chord1");
-        Play("Chord2");
-        Play("Chord3");
-        Play("Chord4");
-        Play("Chord5");
-        Play("Rain");
+
 
 
         FadeOut("Rain", 1000f);
